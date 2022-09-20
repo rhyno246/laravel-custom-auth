@@ -9,25 +9,23 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ route('register.auth') }}" method="post" >
+        <form action="{{ route('reset.token') }}" method="post" >
             @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
             <div class="form-group">
               <label>Email address</label>
-              <input type="email" name="email" class="form-control">
+              <input type="email" name="email" class="form-control" value="{{ $email }}">
             </div>
 
             <div class="form-group">
-                <label>name</label>
-                <input type="text" name="name" class="form-control">
+                <label>Old Password</label>
+                <input type="password" class="form-control" name="old-password">
               </div>
             <div class="form-group">
-              <label>Password</label>
-              <input type="password" class="form-control" name="password">
+              <label>New Password</label>
+              <input type="password" class="form-control" name="new-password">
             </div>
-              <div class="text-left">
-                <a href="{{ route('login') }}">login</a>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Reset password</button>
         </form>
     </div>
 </body>

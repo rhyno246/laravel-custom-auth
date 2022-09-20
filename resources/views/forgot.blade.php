@@ -10,12 +10,22 @@
 <body>
     <div class="container">
         <form method="POST" action="{{ route('forgot') }}">
+            @if (Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                </div>
+            @endif
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
             @csrf
             <div class="form-group">
               <label>Email address</label>
               <input type="email" name="email" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Send reset passowrd</button>
         </form>
     </div>
 </body>

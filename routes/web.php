@@ -34,14 +34,21 @@ Route::get('/forgot-password', [
     'as' => 'forgot',
     'uses' => 'App\Http\Controllers\CustommerController@forgot',
 ]);
-
-
 Route::post('/forgot-password', [
     'as' => 'forgot',
-    'uses' => 'App\Http\Controllers\CustommerController@forgot',
+    'uses' => 'App\Http\Controllers\CustommerController@forgotPost',
 ]);
 
-;
+Route::post('/reset-password', [
+    'as' => 'reset.token',
+    'uses' => 'App\Http\Controllers\CustommerController@resetPost',
+]);
+
+Route::get('/reset-password/{token}', [
+    'as' => 'reset',
+    'uses' => 'App\Http\Controllers\CustommerController@reset',
+]);
+
 
 Route::group(['middleware' => ['alreadyLogin']], function() {
     Route::get('/login', 'App\Http\Controllers\CustommerController@login')->name('login');
