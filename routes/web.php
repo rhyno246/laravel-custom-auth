@@ -23,6 +23,16 @@ Route::post('/register', [
     'uses' => 'App\Http\Controllers\CustommerController@registerAuth',
 ]);
 
+Route::get('/contacts', [
+    'as' => 'contatcs.index',
+    'uses' => 'App\Http\Controllers\ContactsController@index',
+]);
+
+Route::post('/contacts', [
+    'as' => 'contatcs',
+    'uses' => 'App\Http\Controllers\ContactsController@sendMessage',
+]);
+
 
 Route::get('/logout', [
     'as' => 'logout',

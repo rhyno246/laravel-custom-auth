@@ -65,7 +65,19 @@ class CustommerController extends Controller
 
     
     public function resetPost (Request $request){
-
+        $check_token = \DB::table('password_resets')->where([
+            'email' => $request->email,
+            'token' => $request->token
+        ])->first();
+        if(!$check_token){
+            return back()->withInput('fail' , 'Invalid token');
+        }else{
+            $this->customer->where('email',$request->email)->update([
+                'password' => Hash::make($request->password)
+            ]);
+            \DB::table('password_resets')->where('email', $request->email)->delete();
+            return redirect()->route('login')->with('info', 'Bạn đã reset password thành công , bạn có thể sử dụng password vừa reset để đăng nhập lại')->with('verifyEmail' ,$request->email);
+        }
     }
 
     public function forgotPost (Request $request) {
@@ -81,7 +93,7 @@ class CustommerController extends Controller
             $message->from('test@gmail.com', 'ShopOnline');
             $message->to($request->email, 'ShopOnline')->subject('ShopOnline reply reset password');
         });
-        return back()->with('success', 'Chúng tôi có email reset lại password mới cho bạn');
+        return back()->with('success', 'Chúng tôi có email reset lại password mới cho bạn , vui lòng kiểm tra hộp thư mail hoặc trong thư rác');
     }
 
 }

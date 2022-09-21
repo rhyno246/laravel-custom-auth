@@ -12,6 +12,10 @@
         @if (Session::has('fail'))
             <div class="alert alert-danger">{{ Session::get('fail') }}</div>
         @endif
+
+        @if (Session::has('info'))
+            <div class="alert alert-info">{{ Session::get('info') }}</div>
+        @endif
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -26,6 +30,8 @@
             <div class="text-left">
                 <a href="{{ route('register') }}" class="mr-3">register</a>
                 <a href="{{ route('forgot') }}">forgot password</a>
+
+                <a href="{{ route('contatcs') }}">Contacts page</a>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
