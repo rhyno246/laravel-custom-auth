@@ -11,24 +11,39 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <script>
+        
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [day , month, year].join('-');
+        }
         var array = @json($data);
         Highcharts.chart('container' , {
             chart: {
                 type: 'line'
             },
             title: {
-                text: 'A chart for new user'
+                text: 'Thống kê khách hàng đã đăng ký trong tháng'
             },
             xAxis: {
-                categories: array.map(item => item.month_name)
+                categories: array.map(item => formatDate(item.month_name))
             },
             yAxis: {
                 title: {
-                    text: 'Number of new user',
+                    text: 'Số lượng khách hàng đăng ký',
                 }
             },  
             series: [{
-                name: 'New user',
+                name: 'Khách hàng đăng ký',
                 data: array.map(item => item.count),
             }]
         });
