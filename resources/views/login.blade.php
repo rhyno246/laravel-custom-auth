@@ -29,11 +29,12 @@
             </div>
             <div class="text-left">
                 <a href="{{ route('register') }}" class="mr-3">register</a>
-                <a href="{{ route('forgot') }}">forgot password</a>
+                <a href="{{ route('forgot') }}" class="mr-3">forgot password</a>
 
-                <a href="{{ route('contatcs') }}">Contacts page</a>
+                <a href="{{ route('contatcs') }}" class="mr-3">Contacts page</a>
+                <a href="{{ route('country.index') }}" class="mr-3">Country page</a>
+                <a href="{{ route('chart.index') }}">Chart</a>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>

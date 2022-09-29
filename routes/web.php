@@ -28,6 +28,20 @@ Route::get('/contacts', [
     'uses' => 'App\Http\Controllers\ContactsController@index',
 ]);
 
+Route::get('/country', [
+    'as' => 'country.index',
+    'uses' => 'App\Http\Controllers\OrderController@index',
+]);
+
+
+Route::get('/chart', [
+    'as' => 'chart.index',
+    'uses' => 'App\Http\Controllers\ChartController@index',
+]);
+
+
+
+
 Route::post('/contacts', [
     'as' => 'contatcs',
     'uses' => 'App\Http\Controllers\ContactsController@sendMessage',
