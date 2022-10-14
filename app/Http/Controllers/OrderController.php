@@ -8,8 +8,6 @@ use WisdomDiala\Countrypkg\Models\State;
 class OrderController extends Controller
 {
     public function index () {
-        $countries = Country::all();
-        $states = State::all();
-        return view('country.index' , compact('countries', 'states'));
+        return view('country.index');
     }
 }
