@@ -327,7 +327,7 @@
             document.execCommand(
                 "copy",
                 false,
-                $(".coupon-input").select()
+                $(this).parent().find('.coupon-input').select()
             );
             $(this).parent().find('.clickCoupon').html(couponTextActive);
             setTimeout(function () {
