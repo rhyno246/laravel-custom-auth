@@ -7,6 +7,71 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+
+      section.res__gallery {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px auto;
+}
+section.res__gallery ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+section.res__gallery ul li {
+  list-style: none;
+  background: var(--first-color);
+  color: var(--white-color);
+  font-size: var(--h2-font-size);
+  padding: 12px 20px;
+  margin: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
+}
+section.res__gallery ul li.active {
+  background: var(--complementary-color);
+  color: var(--white-color);
+}
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
+}
+.product .itembox {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  display: block;
+}
+.product .itembox.hide {
+  display: none;
+}
+.product .itembox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -34,9 +99,33 @@
               </div>
             <button type="submit" class="btn btn-primary">send</button>
         </form>
+
+
+        
+
+        <section class="res__gallery">
+          <div class="product">
+            <div class="itembox">
+              <a class="fancybox">
+                <img src="https://mectag-design.com/assets/images/mobile1.jpg" alt="mobile1" title="Mobile1">
+              </a>
+            </div>
+            <div class="itembox">
+              <a class="fancybox">
+                <img src="https://mectag-design.com/assets/images/camera1.jpg" alt="camera1">
+              </a>
+            </div>
+          </div>
+        </section>
+      
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    
+
+
     <script>
 
         function getCountry () {
